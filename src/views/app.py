@@ -40,46 +40,46 @@ def main():
 
     with tab2:
         st.header("Chatbot")
-        st.write("Ask questions to the chatbot assistant..")
 
         # Initialize session state to store chat history if it doesn't exist
         if 'chat_history' not in st.session_state:
             st.session_state.chat_history = []
 
-        user_query = st.text_input("Enter your query:", "")
+        user_query = st.text_input("Ask questions to the chatbot assistant..", "")
 
         if st.button("Ask"):
             if user_query.strip():
-                st.write("Processing query...")
+                st.success("Thinking...")
 
                 # Add the user's query to the chat history
-                st.session_state.chat_history.append(f"You: {user_query}")
+                st.session_state.chat_history.insert(0, f"You: {user_query}")
 
                 # Define API endpoint URL for the chatbot
                 chatbot_api_url = "http://127.0.0.1:8000/api/v1/nlp/index/search"
 
                 try:
                     # Prepare payload for chatbot API
-                    payload = {"text": user_query, "limit": 1}
+                    payload = {"text": user_query, "limit": 2}
                     response = requests.post(chatbot_api_url, json=payload)
 
                     if response.status_code == 200:
                         # Extract the relevant response text (from "results")
                         data = response.json()
-                        chatbot_reply = data["results"][0] if "results" in data else "No relevant data found."
+                        chatbot_res = ' '.join(data["results"]) if "results" in data else "No relevant data found."
+                        chatbot_reply = chatbot_res
 
                         # Add the chatbot's response to the chat history
-                        st.session_state.chat_history.append(f"Bot: {chatbot_reply}")
+                        st.session_state.chat_history.insert(0, f"Bot: {chatbot_reply}")
 
                         # Display success and the chatbot's response text
-                        st.success("Query processed successfully!")
+                        # st.success("Question processed successfully!")
                     else:
                         st.error(f"Failed to process query: {response.status_code}")
                         st.write(response.text)
                 except Exception as e:
                     st.error(f"An error occurred: {e}")
             else:
-                st.warning("Please enter a query before sending.")
+                st.warning("Please write a question before sending.")
 
         # Display the chat history
         if st.session_state.chat_history:
