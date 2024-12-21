@@ -2,7 +2,6 @@ from abc import ABC, abstractmethod
 
 class LLMInterface(ABC):
 
-    
 
     @abstractmethod
     def set_embedding_model(self, model_id: str, embedding_size: int):

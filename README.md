@@ -52,33 +52,33 @@ $ uvicorn main:app --reload
 ```
 
 ### API documentation
-# API Documentation - Swagger : 
+#### API Documentation - Swagger : 
 This project uses Swagger to provide an interactive API documentation interface 
-# Accessing the Documentation:  
-You can access the Swagger documentation by navigating to the following URL once the application is running: 
-```bash
-$ http://localhost:<PORT>docs
-``` 
-we have 2 endpoint :
-1) upload file endpoint 
+#### Accessing the Documentation:  
+You can access the Swagger documentation by navigating to the following URL once the application is running. 
+
+We have 2 endpoints :
+1) upload file endpoint :
     request: post
     payload:pdf_file
     response signal expectation :file uploaded success 
     process :
-        1) upload pdf_file
-        2) Extract text and process the data with split file to chunkes y langchain
-        3) embeddeing file_chunkes 
-        4) store vector in Qdatent 
-2) chat endpoint
-    request : post
-    payload : user_query ,limit(number of the responce)
-    response signal expectation : get the best score response
+    1) upload pdf_file.
+    2) Extract text and process the data with split file to chunkes by langchain.
+    3) embeddeing file_chunkes .
+    4) store vector in Qdrent .
+2) chat endpoint: 
+    request : post.
+    payload : user_query ,limit(number of the responce).
+    response signal expectation : get the best score response.
     process : 
-        1) apply search vector qdrant query   
-For more details please review OpenAPI.yaml 
+    1) apply search vector qdrant query .  
+
+For more details please review OpenAPI.yaml .
 
 
-### chatbot’s features and functionalities. 
+### chatbot’s features and functionalities.  
+1) Retrieve the response of the user questions depending on the PDF document  
 
 
 
