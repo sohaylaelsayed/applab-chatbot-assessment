@@ -9,10 +9,6 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y \
     && pip install --no-cache-dir poetry
 
-# COPY ./pyproject.toml ./pyproject.toml
-# RUN poetry config virtualenvs.create false \
-#  && poetry install --no-interaction --no-ansi
-
 RUN pip install streamlit
 
 COPY ./src/views ./
