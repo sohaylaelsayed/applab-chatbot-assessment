@@ -51,6 +51,12 @@ $ docker run -p 8501:8501 --name chatbotui chatbotui:latest
 $ uvicorn main:app --reload  
 ```
 
+### Run the Streamlit server 
+```bash
+$ streamlit run app.py  
+```
+
+
 ### API documentation
 #### API Documentation - Swagger : 
 This project uses Swagger to provide an interactive API documentation interface 
