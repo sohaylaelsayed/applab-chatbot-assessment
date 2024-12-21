@@ -69,7 +69,7 @@ We have 2 endpoints :
         4) store vector in Qdrent .
 2) chat endpoint: 
     1) Request_type : post.
-    2) Payload : user_query ,limit(number of the responce).
+    2) Payload : user_query ,limit.
     3) Response signal expectation : get the best score response.
     4) Process : 
         1) apply search vector qdrant query .  
