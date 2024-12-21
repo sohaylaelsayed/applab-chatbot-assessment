@@ -36,7 +36,6 @@ Set your environment variables in the `.env` file. like `OPENAI_API_KEY` Value .
 ### Build Dockerfiles for both Backend and UI Services
 ```bash
 
-
 $ cp dockers/ChatBotServiceDockerfile ./ChatBotServiceDockerfile
 $ docker build -t chatbotservice:latest -f ChatBotServiceDockerfile .
 $ docker run -p 8000:8000 --name chatbotservice -e OPENAI_API_KEY=<your_api_key> chatbotservice:latest
@@ -51,6 +50,7 @@ $ docker run -p 8501:8501 --name chatbotui chatbotui:latest
 ```bash
 $ uvicorn main:app --reload  
 ```
+
 ### API documentation
 # API Documentation - Swagger : 
 This project uses Swagger to provide an interactive API documentation interface 
@@ -65,22 +65,22 @@ we have 2 endpoint :
     payload:pdf_file
     response signal expectation :file uploaded success 
     process :
-    1) upload pdf_file
-    2) Extract text and process the data with split file to chunkes y langchain
-    3) embeddeing file_chunkes 
-    4) store vector in Qdatent 
+        1) upload pdf_file
+        2) Extract text and process the data with split file to chunkes y langchain
+        3) embeddeing file_chunkes 
+        4) store vector in Qdatent 
 2) chat endpoint
     request : post
     payload : user_query ,limit(number of the responce)
     response signal expectation : get the best score response
     process : 
-    1) apply search vector qdrant query  
+        1) apply search vector qdrant query   
+For more details please review OpenAPI.yaml 
 
 
 ### chatbot’s features and functionalities. 
 
 
 
-### application overview : 
 
 
