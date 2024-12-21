@@ -59,20 +59,20 @@ You can access the Swagger documentation by navigating to the following URL once
 
 We have 2 endpoints :
 1) upload file endpoint :
-    request: post
-    payload:pdf_file
-    response signal expectation :file uploaded success 
-    process :
-    1) upload pdf_file.
-    2) Extract text and process the data with split file to chunkes by langchain.
-    3) embeddeing file_chunkes .
-    4) store vector in Qdrent .
+    1) request: post
+    2) payload:pdf_file
+    3) response signal expectation :file uploaded success 
+    4) process :
+        1) upload pdf_file.
+        2) Extract text and process the data with split file to chunkes by langchain.
+        3) embeddeing file_chunkes .
+        4) store vector in Qdrent .
 2) chat endpoint: 
-    request : post.
-    payload : user_query ,limit(number of the responce).
-    response signal expectation : get the best score response.
-    process : 
-    1) apply search vector qdrant query .  
+    1) request : post.
+    2) payload : user_query ,limit(number of the responce).
+    3) response signal expectation : get the best score response.
+    4) process : 
+        1) apply search vector qdrant query .  
 
 For more details please review OpenAPI.yaml .
 
