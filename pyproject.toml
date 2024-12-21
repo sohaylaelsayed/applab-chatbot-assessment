@@ -18,6 +18,7 @@ langchain-community = "^0.3.12"
 pymupdf = "^1.25.1"
 openai = "^1.58.1"
 qdrant-client = "^1.12.1"
+streamlit = "^1.41.1"
 
 
 [build-system]
