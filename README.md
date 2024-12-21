@@ -1,4 +1,4 @@
-# Applab_Assessment_chatbot
+# Simple Assessment Chatbot
 
 This is a minimal implementation of the RAG model for question answering.
 
@@ -78,7 +78,12 @@ For more details please review OpenAPI.yaml .
 
 
 ### chatbot’s features and functionalities.  
-1) Retrieve the response of the user questions depending on the PDF document  
+
+1) Upload PDF document to prepare the chatbot knowledge base
+2) Chunking the uploaded docs and embedding it using NLP techniques to prepare the chunks for semantic search
+3) Store the embedding texts using vector database provider - we have used QDrant here -
+4) Retrieve the response of user's questions with the highest score of accuracy 
+ 
 
 
 
